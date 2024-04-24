@@ -20,21 +20,21 @@ class HomeRepo @Inject constructor(
 ) {
     val tweetList = mutableListOf<Tweet>()
 
-    suspend fun getUserResponse(): BaseResponse<User> {
-        return instagramApi.getUsers()
-    }
-
-    suspend fun getPosts(): List<Post> {
-        return instagramApi.getPosts().data
-    }
-
-    suspend fun getStories(): List<Story> {
-        return instagramApi.getStories().data
-    }
-
-    suspend fun getNotifications(): List<Notification> {
-        return instagramApi.getNotifications().data
-    }
+//    suspend fun getUserResponse(): BaseResponse<User> {
+//        return instagramApi.getUsers()
+//    }
+//
+//    suspend fun getPosts(): List<Post> {
+//        return instagramApi.getPosts().data
+//    }
+//
+//    suspend fun getStories(): List<Story> {
+//        return instagramApi.getStories().data
+//    }
+//
+//    suspend fun getNotifications(): List<Notification> {
+//        return instagramApi.getNotifications().data
+//    }
 
     suspend fun getTweets(): List<Tweet> {
         delay(5000L)

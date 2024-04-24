@@ -45,8 +45,8 @@ object DemoData {
         profileImage = urls.random(),
         bio = "Android developer | Nature Lover",
         links = listOf("https://github.com//KaushalVasava"),
-        followerIds = listOf("12341", "12342", "12343", "12344", "12345", "12346", "12347"),
-        followingIds = listOf("12342", "12345", "12344", "12346", "12347"),
+        followerIds = listOf("1", "2", "3"),
+        followingIds = listOf("1", "2", "3"),
         postIds = listOf(
             "123451",
             "123452",
@@ -71,5 +71,100 @@ object DemoData {
         title = "Your post liked by Test user",
         timeDate = System.currentTimeMillis(),
         actionBy = "25 likes"
+    )
+
+    val allUsers = listOf(
+        User(id = "1",
+            name = "Linus Lee",
+            profileImage = urls.random(),
+            bio = "Android developer | Nature Lover",
+            links = listOf("https://github.com//KaushalVasava"),
+            followerIds = listOf("1", "2", "3"),
+            followingIds = listOf("1", "2", "3"),
+            postIds = listOf(
+                "1",
+                "2",
+                "3",
+            ),
+            storyIds = listOf("1", "2")),
+        User(id = "2",
+            name = "Alan Liu",
+            profileImage = urls.random(),
+            bio = "Android developer | Nature Lover",
+            links = listOf("https://github.com//KaushalVasava"),
+            followerIds = listOf("1", "2", "3"),
+            followingIds = listOf("1", "2", "3"),
+            postIds = listOf(
+                "1",
+                "2",
+                "3",
+            ),
+            storyIds = listOf("1", "2")),
+        User(id = "3",
+            name = "Samantha Kwok",
+            profileImage = urls.random(),
+            bio = "Android developer | Nature Lover",
+            links = listOf("https://github.com//KaushalVasava"),
+            followerIds = listOf("1", "2", "3"),
+            followingIds = listOf("1", "2", "3"),
+            postIds = listOf(
+                "1",
+                "2",
+                "3",
+            ),
+            storyIds = listOf("1", "2")),
+    )
+
+    val allPosts = listOf(
+        Post(
+            id = "1",
+            userId = "1",
+            postImage = urls.random(),
+            caption = "I'm so happy, I build app using Jetpack compose, You can build complex ui with less code and you make it fun using animations",
+            likeCount = Random.nextInt(0, 100)
+        ),
+        Post(
+            id = "2",
+            userId = "1",
+            postImage = urls.random(),
+            caption = "I'm so happy, I build app using Jetpack compose, You can build complex ui with less code and you make it fun using animations",
+            likeCount = Random.nextInt(0, 100)
+        ),
+        Post(
+            id = "3",
+            userId = "2",
+            postImage = urls.random(),
+            caption = "I'm so happy, I build app using Jetpack compose, You can build complex ui with less code and you make it fun using animations",
+            likeCount = Random.nextInt(0, 100)
+        ),
+    )
+
+    val allStories = listOf(
+        Story(
+            id = "1",
+            userId = "1",
+            image =
+            "https://vectorportal.com/storage/aKJ32lYqZ7wSaC2f0NIMZEUh4hhjlVETzKZ3FjyR.jpg",
+            name = "Car ",
+            likeCount = Random.nextInt(0, 100)
+        ),
+        Story(
+            id = "2",
+            userId = "1",
+            image =
+            "https://vectorportal.com/storage/aKJ32lYqZ7wSaC2f0NIMZEUh4hhjlVETzKZ3FjyR.jpg",
+            name = "Car ",
+            likeCount = Random.nextInt(0, 100)
+        ),
+    )
+
+    val allNotifications = listOf(
+        Notification(
+            id = UUID.randomUUID().toString(),
+            image = urls.random(),
+            title = "Your post liked by Test user",
+            timeDate = System.currentTimeMillis(),
+            actionBy = "25 likes"
+        )
     )
 }

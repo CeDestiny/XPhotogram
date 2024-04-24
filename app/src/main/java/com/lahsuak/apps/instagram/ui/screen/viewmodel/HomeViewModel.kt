@@ -10,6 +10,7 @@ import com.lahsuak.apps.instagram.models.Story
 import com.lahsuak.apps.instagram.models.Tweet
 import com.lahsuak.apps.instagram.models.User
 import com.lahsuak.apps.instagram.repos.HomeRepo
+import com.lahsuak.apps.instagram.util.DemoData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -48,18 +49,7 @@ class HomeViewModel @Inject constructor(
 
     fun getUsers() {
         viewModelScope.launch {
-            try {
-                val response = homeRepo.getUserResponse()
-                if (response.type == "success_user") {
-                    val userList = response.data
-                    getTweets(userList)
-                    _users.value = BaseState.Success(userList)
-                } else {
-                    _users.value = BaseState.Failed(ApiFailure.Unknown("Error"))
-                }
-            } catch (e: Exception) {
-                _users.value = BaseState.Failed(ApiFailure.Unknown(e.message.toString()))
-            }
+            _users.value = BaseState.Success(DemoData.allUsers)
         }
     }
 
@@ -83,31 +73,19 @@ class HomeViewModel @Inject constructor(
 
     fun getPosts() {
         viewModelScope.launch {
-            _posts.value = try {
-                BaseState.Success(homeRepo.getPosts())
-            } catch (e: Exception) {
-                BaseState.Failed(ApiFailure.Unknown(e.message.toString()))
-            }
+            _posts.value = BaseState.Success(DemoData.allPosts)
         }
     }
 
     fun getStories() {
         viewModelScope.launch {
-            _stories.value = try {
-                BaseState.Success(homeRepo.getStories())
-            } catch (e: Exception) {
-                BaseState.Failed(ApiFailure.Unknown(e.message.toString()))
-            }
+            _stories.value = BaseState.Success(DemoData.allStories)
         }
     }
 
     private fun getNotifications() {
         viewModelScope.launch {
-            _notifications.value = try {
-                BaseState.Success(homeRepo.getNotifications())
-            } catch (e: Exception) {
-                BaseState.Failed(ApiFailure.Unknown(e.message.toString()))
-            }
+            BaseState.Success(DemoData.allNotifications)
         }
     }
 
